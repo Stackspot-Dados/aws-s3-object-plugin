@@ -4,28 +4,31 @@ display-name: aws-s3-object-plugin
 picture: plugin.png
 category: backend # Ref: https://docs.stackspot.com/latest/docs/creators-guide/yaml/#category
 compatibility:
-  - java
-  - spring
+  - Terraform
 about: docs/about.md
 usage: docs/usage.md
 use-case: docs/use-case.md
 implementation: docs/implementation.md
 technologies: # Ref: https://docs.stackspot.com/latest/docs/creators-guide/yaml/#technologies
-  - "Api"
+  - "AWS S3"
 types:
   - env
 inputs:
-  - label: Input Example
+  - label: Nome object s3
     type: text
-    name: example
-    default: any text
-  - label: Example of number
-    type: int
-    name: any_number
-    default: "10"
-  - label: Example of list
-    type: multiselect
-    name: any_list
-    items:
-      - item1
-      - item2
+    name: object_name
+
+  - label: Nome do bucket no qual irá colocar o object 
+    type: text
+    name: bucket_name
+    required: true
+
+  - label: Nome(Caminho) do object quando estiver no bucket
+    type: text
+    name: key_object
+    required: true
+
+  - label: Caminho para um arquivo que será lido e carregado como conteúdo do object 
+    type: text
+    name: source_object
+
